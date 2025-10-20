@@ -7,6 +7,10 @@
 #include <stdlib.h> /* for malloc */
 #include "mergesort.h"
 
+int min(int a, int b) {
+	return (a < b) ? a : b;
+}
+
 /* this function will be called by mergesort() and also by parallel_mergesort(). */
 void merge(int leftstart, int leftend, int rightstart, int rightend){
 	int i, j, k;
@@ -56,7 +60,7 @@ void * parallel_mergesort(void *arg){
 	struct argument *args = (struct argument *)arg;
 	
 	/* base case: if we have reached the cutoff level, we just call my_mergesort() */
-	if (args->level >= cutoff) {	
+	if (args->level >= min(cutoff, 5) || args->left >= args->right){
 		my_mergesort(args->left, args->right);
 		return NULL;
 	}
