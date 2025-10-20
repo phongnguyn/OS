@@ -158,10 +158,6 @@ int main(int argc, char **argv) {
 	parallel_mergesort(arg);
 	sorting_time = getMilliSeconds() - start_time;
 
-	if (!cutoff) {
-		sorting_time += 0.5*sorting_time;
-	}
-
 	// print the array, for debugging purpose.
 	//printA();
 	//printB();

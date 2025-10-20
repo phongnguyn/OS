@@ -60,7 +60,7 @@ void * parallel_mergesort(void *arg){
 	struct argument *args = (struct argument *)arg;
 	
 	/* base case: if we have reached the cutoff level, we just call my_mergesort() */
-	if (args->level >= min(cutoff, 5) || args->left >= args->right){
+	if (args->level >= min(cutoff, 5) || args->right - args->left < 1000) {
 		my_mergesort(args->left, args->right);
 		return NULL;
 	}
