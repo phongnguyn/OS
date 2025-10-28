@@ -1,5 +1,3 @@
-README.template
-
 ## Project Number/Title
 
 * Authors: Tan Loc Nguyen, Shijie Tian, Lehao Huang
